@@ -1,8 +1,7 @@
 import React from 'react';
 import { withStyles, WithStyles, Theme, Typography } from '@material-ui/core';
-import Section, { SectionVariant } from './Section';
-import CallToAction from './CallToAction';
-import { getImageURL, ImageScaleMode } from '../utils/getImageURL';
+import { Section, SectionVariant, CallToAction } from '../../ui';
+import { getImageURL, ImageScaleMode } from '../../../lib/getImageURL';
 
 const styles = (theme: Theme) => ({
     root: {

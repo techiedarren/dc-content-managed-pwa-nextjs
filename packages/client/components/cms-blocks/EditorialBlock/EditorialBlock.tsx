@@ -1,6 +1,6 @@
 import React from 'react';
 import { withStyles, WithStyles } from '@material-ui/core';
-import Section from './Section';
+import { Section } from '../../ui';
 import ReactMarkdown from 'react-markdown';
 
 const styles = theme => ({

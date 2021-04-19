@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const GlobalStyle = createGlobalStyle`
     a,a:hover,a:active,a:visited {
@@ -13,4 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export default GlobalStyle;
+export default () => <>
+    <GlobalStyle />
+    <CssBaseline />
+</>;

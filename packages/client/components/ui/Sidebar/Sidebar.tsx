@@ -3,12 +3,11 @@ import { withStyles, WithStyles, Paper, Theme, ListItem, List, ListItemIcon, Lis
 import clsx from 'clsx';
 
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import Logo from './Logo';
-
-import LocatorIcon from '../public/svg/locator.svg';
-import AccountIcon from '../public/svg/account.svg';
-import CartIcon from '../public/svg/cart.svg';
-import { NavigationLink } from './Navigation';
+import Logo from '../../core/Logo';
+import LocatorIcon from '../../../public/svg/locator.svg';
+import AccountIcon from '../../../public/svg/account.svg';
+import CartIcon from '../../../public/svg/cart.svg';
+import { NavigationLink } from '../../core/Navigation';
 import Link from 'next/link';
 
 const styles = (theme: Theme) => ({

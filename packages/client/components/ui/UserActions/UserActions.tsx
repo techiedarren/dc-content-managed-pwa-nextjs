@@ -1,9 +1,9 @@
 import React from 'react';
 import { withStyles, WithStyles, IconButton, Badge, SvgIcon } from '@material-ui/core';
 
-import LocatorIcon from '../public/svg/locator.svg';
-import AccountIcon from '../public/svg/account.svg';
-import CartIcon from '../public/svg/cart.svg';
+import LocatorIcon from '../../../public/svg/locator.svg';
+import AccountIcon from '../../../public/svg/account.svg';
+import CartIcon from '../../../public/svg/cart.svg';
 
 const styles = theme => ({
     icon: {

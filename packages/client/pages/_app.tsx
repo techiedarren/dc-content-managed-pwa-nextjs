@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import NextApp from 'next/app';
-import Head from 'next/head';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { GlobalStyle, Head, WithTheme } from '../components/core';
 
-import { ThemeProvider } from '@material-ui/core';
-import createTheme from '../components/createTheme';
-import GlobalStyle from '../components/GlobalStyle';
+const Noop: FC = ({ children }) => <>{children}</>
 
 export default class App extends NextApp {
     componentDidMount() {
@@ -18,18 +15,17 @@ export default class App extends NextApp {
 
     render() {
         const { Component, pageProps } = this.props;
-        const theme = createTheme();
+        const Layout = (Component as any).Layout || Noop;
 
         return (
             <React.Fragment>
-                <Head>
-                    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-                </Head>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
+                <Head />
+                <WithTheme>
                     <GlobalStyle />
-                    <Component {...pageProps} />
-                </ThemeProvider>
+                    <Layout pageProps={pageProps}>
+                        <Component {...pageProps} />
+                    </Layout>
+                </WithTheme>
             </React.Fragment>
         );
     }

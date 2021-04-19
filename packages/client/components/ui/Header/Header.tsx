@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, PropsWithChildren } from 'react';
 import { withStyles, WithStyles, Theme, IconButton } from '@material-ui/core';
-import Logo from './Logo';
+import { Logo } from '../../core';
 import clsx from 'clsx';
 
 import MenuIcon from '@material-ui/icons/Menu';

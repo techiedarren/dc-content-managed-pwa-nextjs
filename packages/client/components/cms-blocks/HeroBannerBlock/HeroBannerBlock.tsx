@@ -1,10 +1,10 @@
 import React from 'react';
 import { withStyles, WithStyles, Typography, Theme, Button } from '@material-ui/core';
 import clsx from 'clsx';
-import Overlay from './Overlay';
+import { Overlay } from '../../ui';
 
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { getImageURL, ImageScaleMode } from '../utils/getImageURL';
+import { getImageURL, ImageScaleMode } from '../../../lib/getImageURL';
 
 const styles = (theme: Theme) => ({
     root: {
