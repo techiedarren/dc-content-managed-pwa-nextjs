@@ -99,11 +99,13 @@ const Header: React.SFC<Props> = (props) => {
     const menuRef = useRef(null);
     const [menuHeight, setMenuHeight] = useState(null);
 
-    useLayoutEffect(() => {
-        if (menuRef.current) {
-            setMenuHeight(menuRef.current.offsetHeight);
-        }
-    }, [menuRef.current]);
+    if (typeof window !== 'undefined') {
+        useLayoutEffect(() => {
+            if (menuRef.current) {
+                setMenuHeight(menuRef.current.offsetHeight);
+            }
+        }, [menuRef.current]);
+    }
 
     return (
         <header className={clsx(classes.root, className)} style={{
