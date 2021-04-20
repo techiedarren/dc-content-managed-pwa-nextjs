@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { CmsContent } from '../../../lib/CmsContent';
+import { CmsContent } from '../../../lib/cms/CmsContent';
 import EditorialBlock from '../EditorialBlock';
 import GalleryBlock from '../GalleryBlock';
 import HeroBannerBlock from '../HeroBannerBlock';

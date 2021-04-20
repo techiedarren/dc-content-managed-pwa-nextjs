@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { Overlay } from '../../ui';
 
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import { getImageURL, ImageScaleMode } from '../../../lib/getImageURL';
+import { getImageURL, ImageScaleMode } from '../../../lib';
 
 const styles = (theme: Theme) => ({
     root: {

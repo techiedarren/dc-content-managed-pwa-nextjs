@@ -50,7 +50,7 @@ function extractRequest(request: CmsRequest): { id: string } | { key: string } {
     }
 }
 
-async function fetchContent(items: CmsRequest[], context?: CmsContext): Promise<(CmsContent | null)[]> {
+export async function fetchContent(items: CmsRequest[], context?: CmsContext): Promise<(CmsContent | null)[]> {
     const host = context?.stagingApi || process.env.contentApi;
     const sessionCache: { [cacheKey: string]: Promise<CmsContent | null> } = {};
     
@@ -114,5 +114,3 @@ async function fetchContent(items: CmsRequest[], context?: CmsContext): Promise<
     
     return fetchedContent;
 }
-
-export default fetchContent;

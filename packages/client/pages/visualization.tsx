@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { CmsContent } from '../lib/CmsContent';
+import { CmsContent } from '../lib/cms/CmsContent';
 import fetchContent from '../lib/fetchContent';
 import { Layout } from '../components/ui';
 import { CmsBlock } from '../components/cms-blocks';

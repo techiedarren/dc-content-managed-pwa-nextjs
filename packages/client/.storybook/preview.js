@@ -1,9 +1,7 @@
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
-import { ThemeProvider, CssBaseline } from '@material-ui/core';
-import createTheme from '../components/createTheme';
-import GlobalStyle from '../components/GlobalStyle';
+import { GlobalStyle, WithTheme } from '../components';
 
 addParameters({
   docs: {
@@ -13,9 +11,8 @@ addParameters({
 });
 
 addDecorator(storyFn => <>
-  <ThemeProvider theme={createTheme()}>
-    <CssBaseline />
+  <WithTheme>
     <GlobalStyle />
     {storyFn()}
-  </ThemeProvider>
+  </WithTheme>
 </>);

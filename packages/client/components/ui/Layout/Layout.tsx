@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { CmsContent } from '../../../lib/CmsContent';
+import { CmsContent } from '../../../lib/cms/CmsContent';
 import Navigation from '../../core/Navigation';
 import Footer from '../Footer';
 import Header from '../Header';

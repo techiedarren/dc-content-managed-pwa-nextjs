@@ -1,0 +1,5 @@
+{
+    "body": "../content-schemas/offer-content.json",
+    "schemaId": "https://anyafinn.dev/offer-content.json",
+    "validationLevel": "CONTENT_TYPE"
+}

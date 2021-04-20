@@ -1,0 +1,165 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://anyafinn.dev/layout.json",
+
+	"title": "Layout",
+	"description": "",
+
+	"allOf": [{
+		"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+	}],
+
+	"type": "object",
+	"properties": {
+		"slots": {
+			"type": "object",
+			"ui:extension": {
+				"name": "dc-extension-dom",
+				"params": {
+					"height": 600,
+					"slots": {
+						"main": {
+							"allow": "*"
+						}
+					},
+					"components": [{
+							"name": "section",
+							"title": "Section",
+							"icon": "input",
+							"properties": {},
+							"group": "Layout",
+							"slots": {
+								"children": {
+									"allow": "*"
+								}
+							},
+							"properties": {
+								"variant": {
+									"type": "string",
+									"title": "Variant",
+									"enum": [
+										"default",
+										"contained"
+									]
+								},
+								"title": {
+									"type": "string",
+									"title": "Title"
+								}
+							}
+						},
+						{
+							"name": "grid",
+							"title": "Grid",
+							"icon": "input",
+							"properties": {},
+							"group": "Layout",
+							"slots": {
+								"children": {
+									"allow": "*"
+								}
+							},
+							"properties": {
+								"container": {
+									"type": "boolean",
+									"title": "Container"
+								},
+								"direction": {
+									"type": "string",
+									"title": "Direction",
+									"enum": [
+										"row",
+										"column"
+									]
+								},
+								"justify": {
+									"type": "string",
+									"title": "Justify",
+									"enum": [
+										"flex-start",
+										"center",
+										"flex-end",
+										"space-between",
+										"space-around",
+										"space-evenly"
+									]
+								},
+								"alignItems": {
+									"type": "string",
+									"title": "Align Items",
+									"enum": [
+										"flex-start",
+										"center",
+										"flex-end",
+										"stretch",
+										"baseline"
+									]
+								}
+							}
+						},
+						{
+							"name": "typography",
+							"title": "Typography",
+							"icon": "text_format",
+							"group": "Interface",
+							"preview": {
+								"text": "/text"
+							},
+							"slots": {
+								"children": {
+									"allow": "*"
+								}
+							},
+							"properties": {
+								"variant": {
+									"type": "string",
+									"title": "Variant",
+									"enum": [
+										"h1", "h2", "h3", "h4", "h5", "h6", "body1", "body2"
+									]
+								}
+							}
+						},
+						{
+							"name": "product_attribute",
+							"title": "Product Attribute",
+							"icon": "sell",
+							"group": "Product",
+							"slots": {},
+							"properties": {
+								"variant": {
+									"type": "string",
+									"title": "Variant",
+									"enum": [
+										"name", "brand", "product_id"
+									]
+								}
+							}
+						},
+						{
+							"name": "product_image",
+							"title": "Product Image",
+							"icon": "sell",
+							"group": "Product",
+							"slots": {},
+							"properties": {
+								
+							}
+						},
+						{
+							"name": "product_header",
+							"title": "Product Header",
+							"icon": "sell",
+							"group": "Product",
+							"slots": {},
+							"properties": {		
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+
+	"definitions": {}
+}

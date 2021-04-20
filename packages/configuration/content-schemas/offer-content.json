@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://anyafinn.dev/offer-content.json",
+
+	"title": "Offer Content",
+	"description": "",
+
+	"allOf": [{
+		"$ref": "http://bigcontent.io/cms/schema/v1/core#/definitions/content"
+	}],
+
+	"type": "object",
+	"properties": {
+		"_meta": {
+			"type": "object",
+			"properties": {
+				"deliveryKey": {
+					"title": "Offer ID",
+					"type": "string"
+				}
+			}
+		},
+		"title": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string",
+			"url": "https://rich-text.extensions.content.amplience.net",
+			"params": {
+				"language": "markdown"
+			}
+		}
+	},
+
+	"definitions": {}
+}
