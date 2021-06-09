@@ -1,5 +1,0 @@
-{
-    "body": "../content-schemas/navigation-slot.json",
-    "schemaId": "https://anyafinn.dev/navigation-slot.json",
-    "validationLevel": "SLOT"
-}

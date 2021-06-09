@@ -4,6 +4,7 @@ import { CmsContent } from '../lib/CmsContent';
 import fetchContent from '../lib/fetchContent';
 import { Layout } from '../components/ui';
 import { CmsBlock } from '../components/cms-blocks';
+import { fetchNavigation } from '../lib/fetchNavigation';
 
 interface Props {
     navigation: CmsContent,
@@ -33,12 +34,17 @@ const Index: NextPage<Props> = (props: Props) => {
 Index['Layout'] = Layout;
 
 Index.getInitialProps = async (context) => {
+  // Load navigation & slot content in parallel
   const [
-    navigation,
-    slot
-  ] = await fetchContent([
-    { key: 'slots/navigation' },
-    { key: 'slots/homepage-hero' }
+      navigation,
+      [
+          slot
+      ]
+  ] = await Promise.all([
+      fetchNavigation(),
+      fetchContent([
+        { key: 'slots/homepage-hero' }
+      ])
   ]);
 
   return {

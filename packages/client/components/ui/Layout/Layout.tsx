@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children, pageProps }) => {
-    const navigationLinks = pageProps?.navigation?.navigation?.links || [];
+    const navigation = pageProps?.navigation || [];
 
     const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
@@ -31,7 +31,7 @@ const Layout: FC<Props> = ({ children, pageProps }) => {
                 <Header actions={<UserActions />}
                     search={<SearchBox />}
                     navigation={(
-                        <Navigation links={navigationLinks}>
+                        <Navigation navigation={navigation}>
                         </Navigation>
                     )}
                     onToggleSidebar={handleToggleSidebar}>
@@ -42,7 +42,7 @@ const Layout: FC<Props> = ({ children, pageProps }) => {
                 <Footer />
             </div>
 
-            <Sidebar links={navigationLinks} open={sidebarOpen} onToggleOpen={handleToggleSidebar} />
+            <Sidebar navigation={navigation} open={sidebarOpen} onToggleOpen={handleToggleSidebar} />
         </>
     );
 };

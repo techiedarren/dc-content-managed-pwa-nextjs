@@ -3,6 +3,7 @@ import { withStyles, WithStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { NavigationNode } from '../../lib/fetchNavigation';
 
 const styles = (theme: Theme) => ({
     root: {
@@ -34,23 +35,18 @@ const styles = (theme: Theme) => ({
     }
 });
 
-export type NavigationLink = {
-    title: string;
-    href: string;
-};
 
 interface Props extends WithStyles<typeof styles> {
     className?: string;
     style?: React.CSSProperties;
-
-    links: NavigationLink[];
+    navigation: NavigationNode[];
 }
 
 const Navigation: React.SFC<Props> = (props) => {
     const {
         classes,
         className,
-        links,
+        navigation,
         ...other
     } = props;
 
@@ -60,13 +56,13 @@ const Navigation: React.SFC<Props> = (props) => {
         <nav className={clsx(classes.root, className)} {...other}>
             <ul className={classes.list}>
                 {
-                    links.map(link => {
+                    navigation.map(node => {
                         return <li className={clsx(classes.listItem, {
-                            [classes.activeListItem]: router?.asPath === link.href
+                            [classes.activeListItem]: router?.asPath === `/${node.content.link?._meta?.deliveryKey}`
                         })}>
-                            <Link href='/' as={link.href}>
+                            <Link href={node.content.link?._meta?.deliveryKey || ''}>
                                 <a>
-                                    {link.title}
+                                    {node.content.title}
                                 </a>
                             </Link>
                         </li>;

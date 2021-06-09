@@ -7,8 +7,8 @@ import Logo from '../../core/Logo';
 import LocatorIcon from '../../../public/svg/locator.svg';
 import AccountIcon from '../../../public/svg/account.svg';
 import CartIcon from '../../../public/svg/cart.svg';
-import { NavigationLink } from '../../core/Navigation';
 import Link from 'next/link';
+import { NavigationNode } from '../../../lib/fetchNavigation';
 
 const styles = (theme: Theme) => ({
     root: {
@@ -72,7 +72,7 @@ export interface Props extends WithStyles<typeof styles> {
     style?: React.CSSProperties;
     open: boolean;
     onToggleOpen: () => void;
-    links: NavigationLink[];
+    navigation: NavigationNode[];
 }
 
 const Sidebar: React.SFC<Props> = (props) => {
@@ -80,7 +80,7 @@ const Sidebar: React.SFC<Props> = (props) => {
         classes,
         open,
         onToggleOpen,
-        links,
+        navigation,
         ...other
     } = props;
 
@@ -122,10 +122,10 @@ const Sidebar: React.SFC<Props> = (props) => {
                         <Divider />
                         <List component="nav" aria-label="secondary mailbox folders">
                             {
-                                links.map(link => {
-                                    return <Link href={link.href}>
+                                navigation.map(node => {
+                                    return <Link href={node.content.link?._meta?.deliveryKey || ''}>
                                         <ListItem button>
-                                            <ListItemText primary={link.title} />
+                                            <ListItemText primary={node.content.title} />
                                         </ListItem>
                                     </Link>;
                                 })
