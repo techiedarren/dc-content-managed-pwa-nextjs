@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { CmsContent } from '../../../lib/cms/CmsContent';
+import { useContent } from '../../cms-admin/WithVisualization/WithVisualization';
 import EditorialBlock from '../EditorialBlock';
 import GalleryBlock from '../GalleryBlock';
 import HeroBannerBlock from '../HeroBannerBlock';
@@ -16,15 +17,16 @@ const mapping: any = {
 
 const CmsBlock: FC<Props> = ({content}) => {
     if (!content) {
-        return;
+        return <></>;
     }
     
     const Component = mapping[content.component] || mapping[content._meta?.schema];
     if (!Component) {
-        return;
+        return <></>;
     }
 
-    return <Component {...content} />;
+    const [_content] = useContent(content);
+    return <Component {..._content} />;
 }
 
 export default CmsBlock;

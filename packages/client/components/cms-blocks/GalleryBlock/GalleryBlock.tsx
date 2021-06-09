@@ -65,6 +65,10 @@ const GalleryBlock: React.SFC<Props> = (props) => {
             <ul className={classes.list}>
                 {
                     items.map(item => {
+                        if (!item.image) {
+                            return;
+                        }
+
                         const imageUrl = getImageURL(item.image, {
                             width: 600,
                             height: 450,

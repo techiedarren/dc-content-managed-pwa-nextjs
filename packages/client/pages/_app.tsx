@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import NextApp from 'next/app';
 import { GlobalStyle, Head, WithTheme } from '../components/core';
+import WithVisualization from '../components/cms-admin/WithVisualization/WithVisualization';
 
 const Noop: FC = ({ children }) => <>{children}</>
 
@@ -19,13 +20,15 @@ export default class App extends NextApp {
 
         return (
             <React.Fragment>
-                <Head />
-                <WithTheme>
-                    <GlobalStyle />
-                    <Layout pageProps={pageProps}>
-                        <Component {...pageProps} />
-                    </Layout>
-                </WithTheme>
+                <WithVisualization>
+                    <Head />
+                    <WithTheme>
+                        <GlobalStyle />
+                        <Layout pageProps={pageProps}>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </WithTheme>
+                </WithVisualization>
             </React.Fragment>
         );
     }

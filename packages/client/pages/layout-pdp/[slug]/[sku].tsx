@@ -6,6 +6,7 @@ import { fetchContent } from '../../../lib';
 import { getProduct, Product } from '../../../lib';
 import { WithProduct } from '../../../components/commerce';
 import { CmsComponent } from '../../../components';
+import { useContent } from '../../../components/cms-admin/WithVisualization/WithVisualization';
 
 interface Props {
     navigation: CmsContent,
@@ -14,9 +15,11 @@ interface Props {
 }
 
 const PDP: NextPage<Props> = (props: Props) => {
+  const [layout] = useContent(props.layout);
+
   return (
     <WithProduct product={props.product}>
-      { props.layout.slots.main.map(component => <CmsComponent data={component} />) }
+      { ((layout.slots || {}).main || []).map(component => <CmsComponent data={component} />) }
     </WithProduct>
   );
 }

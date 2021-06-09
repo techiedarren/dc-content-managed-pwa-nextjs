@@ -4,6 +4,7 @@ import { CmsContent } from '../lib/cms/CmsContent';
 import { fetchContent } from '../lib';
 import { Layout } from '../components/ui';
 import { CmsBlock } from '../components/cms-blocks';
+import { useVisualization } from '../components/cms-admin/WithVisualization/WithVisualization';
 
 interface Props {
     navigation: CmsContent,
@@ -19,8 +20,12 @@ const defaultSlotContents = [
 ];
 
 const Visualization: NextPage<Props> = (props: Props) => {
+  const {
+    formModel
+  } = useVisualization();
+
   return (
-    <CmsBlock content={props.content} />
+    <CmsBlock content={formModel || props.content} />
   );
 }
 
